@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export const meta: MetaFunction = () => {
@@ -19,12 +20,23 @@ const Box = styled.div`
   width: 200px;
   height: 200px;
   background-color: ${({ theme }) => theme.fg};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default function Index() {
+  const [jsStatus, setJsStatus] = useState('JS is disabled');
+
+  useEffect(() => {
+    setJsStatus('JS is enabled');
+  }, [setJsStatus])
+
   return (
     <Layout>
-      <Box />
+      <Box>
+        <h1>{jsStatus}</h1>
+      </Box>
     </Layout>
   );
 }
