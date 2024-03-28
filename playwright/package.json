@@ -8,7 +8,12 @@
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "test:e2e": "yarn playwright test",
+    "test:e2e:chrome": "yarn playwright test --project=chromium",
+    "test:e2e:firefox": "yarn playwright test --project=firefox",
+    "test:e2e:webkit": "yarn playwright test --project=webkit",
+    "test:e2e:ui": "yarn playwright test --ui"
   },
   "dependencies": {
     "@remix-run/node": "^2.8.1",
@@ -22,6 +27,7 @@
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
+    "@playwright/test": "^1.42.1",
     "@remix-run/dev": "^2.8.1",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
